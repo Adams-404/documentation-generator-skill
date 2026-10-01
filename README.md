@@ -18,14 +18,25 @@ actually looks like, so an AI agent applies it the same way every time.
 3. The agent will follow the standard in `SKILL.md`: summary, parameters,
    return value, side effects, and an example when useful
 
+## Installation
+
+Install directly into your detected coding agents using the `skills` CLI:
+
+```bash
+npx skills add Adams-404/documentation-generator-skill
+```
+
+For a detailed walkthrough of how this command works under the hood without publishing to npm, why it differs from `npm install`, and how to make your own custom skills installable, see **[HOW_SKILL_INSTALLATION_WORKS.md](HOW_SKILL_INSTALLATION_WORKS.md)**.
+
 ## Structure
 ```
 documentation-generator-skill/
-├── SKILL.md              - the core instructions
-├── README.md              - this file
-└── examples/
-    ├── good-example.md    - a well-documented function
-    └── bad-example.md     - the same function, poorly documented
+|-- SKILL.md                          - the core instructions
+|-- README.md                         - this file
+|-- HOW_SKILL_INSTALLATION_WORKS.md   - guide to npx skills vs npm and distribution
+\-- examples/
+    |-- good-example.md                - a well-documented function
+    \-- bad-example.md                 - the same function, poorly documented
 ```
 
 ## Built for Hacktoberfest 2026
@@ -36,4 +47,5 @@ but a reusable tool that makes an AI agent genuinely more useful.
 
 ### Companion Guide & Advanced Skills Suite
 - **Beginner Guide (This Repo)**: A focused, single-purpose skill demonstrating core `SKILL.md` structure, triggering criteria, and before/after documentation examples.
-- **Intermediate / Advanced Suite**: [skills](https://github.com/Adams-404/skills) — A moderately complex multi-skill orchestration suite demonstrating Git worktree isolation, automated runtime video/screen evidence, CI review loops, and prose refinement.
+- **Intermediate / Advanced Suite**: [skills](https://github.com/Adams-404/skills) - A moderately complex multi-skill orchestration suite demonstrating Git worktree isolation, automated runtime video/screen evidence, CI review loops, and prose refinement.
+- **Autonomous Multi-Agent Orchestration**: [multi-agent-orchestrator-skill](https://github.com/Adams-404/multi-agent-orchestrator-skill) - A specialized skill and DAG execution engine for breaking complex engineering tasks into sub-tasks with isolated sub-agent context boundaries.
