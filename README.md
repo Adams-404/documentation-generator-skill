@@ -33,3 +33,7 @@ This skill was built as a live example during the Hacktoberfest Gombe
 kickoff session, demonstrating what a real, valid open-source AI
 contribution looks like this year: not a pull request for its own sake,
 but a reusable tool that makes an AI agent genuinely more useful.
+
+### Companion Guide & Advanced Skills Suite
+- **Beginner Guide (This Repo)**: A focused, single-purpose skill demonstrating core `SKILL.md` structure, triggering criteria, and before/after documentation examples.
+- **Intermediate / Advanced Suite**: [skills](https://github.com/Adams-404/skills) — A moderately complex multi-skill orchestration suite demonstrating Git worktree isolation, automated runtime video/screen evidence, CI review loops, and prose refinement.
