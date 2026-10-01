@@ -26,7 +26,9 @@ Install directly into your detected coding agents using the `skills` CLI:
 npx skills add Adams-404/documentation-generator-skill
 ```
 
-For a detailed walkthrough of how this command works under the hood without publishing to npm, why it differs from `npm install`, and how to make your own custom skills installable, see **[HOW_SKILL_INSTALLATION_WORKS.md](HOW_SKILL_INSTALLATION_WORKS.md)**.
+### Reference Guides
+- **[HOW_SKILL_INSTALLATION_WORKS.md](HOW_SKILL_INSTALLATION_WORKS.md)**: How the install command works under the hood without publishing to npm, why it differs from `npm install`, and how to distribute skills.
+- **[SKILL_DISCOVERY_AND_FRONTMATTER.md](SKILL_DISCOVERY_AND_FRONTMATTER.md)**: Deep dive into progressive disclosure, context window conservation, automated agent discovery, and authoring effective YAML frontmatter triggers.
 
 ## Structure
 ```
@@ -34,6 +36,7 @@ documentation-generator-skill/
 |-- SKILL.md                          - the core instructions
 |-- README.md                         - this file
 |-- HOW_SKILL_INSTALLATION_WORKS.md   - guide to npx skills vs npm and distribution
+|-- SKILL_DISCOVERY_AND_FRONTMATTER.md- guide to automated discovery and YAML triggers
 \-- examples/
     |-- good-example.md                - a well-documented function
     \-- bad-example.md                 - the same function, poorly documented
