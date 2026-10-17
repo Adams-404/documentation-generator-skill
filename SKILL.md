@@ -1,49 +1,59 @@
-# Documentation Generator Skill
+---
+name: documentation-generator
+description: Writes precise, convention-matching documentation for undocumented or poorly documented functions, classes, scripts, and codebases. Use when asked to document code, add docstrings or comments, explain code behavior, or improve API documentation. Do not use for implementing new behavior or refactoring code unrelated to documentation.
+---
 
-## When to use this skill
-Use this skill when the user asks to document a function, class, script, or
-codebase that currently has little or no documentation. Triggers include:
-"document this", "add docstrings", "write documentation for this function",
-"explain what this code does", or "add comments to this".
+# Documentation Generator
 
-## What this skill does
-Turns undocumented or poorly documented code into clearly documented code by
-adding:
-1. A short docstring/comment block explaining what the function/class does
-2. A description of each parameter (name, type, purpose)
-3. A description of the return value (type and meaning)
-4. Any important edge cases, exceptions raised, or side effects
-5. One short usage example, when it meaningfully helps understanding
+Document code that is undocumented, incomplete, or difficult to understand.
+Preserve the code's behavior and follow the documentation convention already
+used by the language and repository.
 
-## How to do it well
+## Workflow
 
-1. **Read the code fully before writing anything.** Do not guess at
-   behavior, trace the actual logic, including conditionals, loops, and
-   error handling.
-2. **Match the language's documentation convention.** Use docstrings for
-   Python (Google or NumPy style), JSDoc for JavaScript/TypeScript, Javadoc
-   for Java, etc. Never invent a custom format if the language has a
-   standard one.
-3. **Be precise about types.** State the exact expected type for every
-   parameter and return value, not just "a string" when it's actually
-   "a non-empty string matching an email pattern."
-4. **Document behavior, not implementation.** Explain *what* the function
-   does and *why*, not a line-by-line narration of *how* the code executes.
-5. **Call out side effects.** If the function mutates input, writes to
-   disk, makes a network call, or raises exceptions, say so explicitly.
-6. **Keep it concise.** One to three sentences for the summary. Don't pad
-   with restating the function name in sentence form.
-7. **Add a usage example only when it adds real clarity** (e.g. non-obvious
-   parameters, multiple valid call patterns). Skip it for trivial functions.
+1. Read the target code completely before writing documentation. Trace its
+    conditionals, loops, error handling, and interactions with other code.
+2. Identify the public behavior: purpose, inputs, outputs, errors, side
+    effects, mutation, and important constraints.
+3. Check nearby documentation and repository conventions. Match the existing
+    style instead of introducing a new format.
+4. Add or improve documentation without changing runtime behavior.
+5. Review the result for factual accuracy, useful specificity, and concise
+    wording.
 
-## What NOT to do
-- Don't document obvious code with no complexity for the sake of coverage
-  ("this function returns x" when the function is `def get_x(): return x`)
-- Don't change the code's actual logic while documenting it
-- Don't use vague type descriptions ("some object", "a value")
-- Don't skip documenting error/exception behavior if the function can fail
-- Don't write documentation longer than the function itself for simple cases
+## Document
 
-## Reference examples
-See `examples/good-example.md` and `examples/bad-example.md` for a direct
-comparison of strong vs. weak documentation on the same function.
+Include the following when they apply:
+
+- A short summary of what the symbol does and why it exists
+- Every parameter's name, exact type, purpose, and meaningful constraints
+- The return type and the meaning of the returned value
+- Exceptions or error conditions callers may encounter
+- Side effects, including mutation, file or network I/O, logging, and state
+    changes
+- One short usage example when the API or behavior is non-obvious
+
+Describe behavior rather than narrating implementation details. For simple
+symbols, keep the documentation shorter than or comparable to the code itself.
+
+## Conventions
+
+Use the standard convention for the language and the repository, for example:
+
+- Python: docstrings in the repository's Google or NumPy style
+- JavaScript or TypeScript: JSDoc
+- Java: Javadoc
+- Other languages: the ecosystem's established documentation format
+
+Use exact types and constraints. Prefer `non-empty string matching ...` over
+vague descriptions such as `a string` when the code enforces a narrower
+contract.
+
+## Boundaries
+
+- Do not guess about behavior that the code does not establish.
+- Do not document obvious statements merely to increase coverage.
+- Do not change implementation logic, names, formatting, or tests unless the
+  user explicitly requests those changes.
+- Do not omit known exceptions or side effects.
+- Do not add an example when it would merely repeat a trivial function call.
